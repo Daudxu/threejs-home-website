@@ -24,6 +24,23 @@ export default class Room {
                     groupchild.receiveShadow = true;
                 })
             }
+    
+            if (child.name === "Aquarium") {
+                // console.log(child);
+                child.children[0].material = new THREE.MeshPhysicalMaterial();
+                child.children[0].material.roughness = 0;
+                child.children[0].material.color.set("0x549dd2");
+                child.children[0].material.ior = 3;
+                child.children[0].material.transmission = 1;
+                child.children[0].material.opacity = 0.5;
+            }
+
+      
+            if (child.name === "Computer") {
+                child.children[1].material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.screen,
+                });
+            }
         });
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.11, 0.11, 0.11);

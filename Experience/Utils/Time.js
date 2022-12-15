@@ -20,4 +20,6 @@ export default class Time  extends EventEmitter{
         this.emit("update")
         window.requestAnimationFrame(()=>this.update())
     }
+
+    
 }
